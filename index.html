@@ -1,0 +1,267 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="رنة إلهنا انت الشافي لمشارى العفاسي">
+    <title>رنة إلهنا انت الشافي</title>
+    <link rel="icon" href="images/header.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    
+    
+
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/default-css.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <div class="banner-wrapper" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="row align-items-center">
+                        <div class="col-md-5">
+                            <h1 class="header_title">
+                                للاشتراك في نغمة دعاء العفاسي على جوالك
+                            </h1>
+                            <div class="banner-left">
+                                <div class="banner-inner">
+                                    <div class="audio-player">
+                                        <div id="soundwave"></div>
+                                        <div class="top-control">
+                                        </div>
+                                        <div id="play-btn">
+                                            
+                                            <i class="fa fa-play"></i>
+                                        </div>
+                                        <div class="audio-wrapper" id="player-container" href="javascript:;">
+                                            <audio
+                                                controls
+                                                autobuffer
+                                                autoplay
+                                                loop 
+                                                preload="auto"  
+                                                id="player" 
+                                                ontimeupdate="initProgressBar()"
+                                                oncanplay="myOnCanPlayThroughFunction()"
+                                                oncanplaythrough="forceToPlay()"
+                                                onloadeddata="myOnLoadedData()"
+                                            >
+                                                <source src="sound.mp3" type="audio/mp3">
+                                            </audio>
+                                        </div>
+                                        <div class="player-controls scrubber">
+                                            <!-- <p>Oslo <small>by</small> Holy Esque</p> -->
+                                            <span id="seek-obj-container">
+                                          <progress id="seek-obj" value="0" max="1"></progress>
+                                        </span>
+                                            <small style="float: left; position: relative; left: 7px;" id="start-time">00:00</small>
+                                            <small style="float: right; position: relative; right: 7px;" id="end-time">00:00</small>
+                                        </div>
+                                        <div class="album-image" style="background: url(https://cdn-soundlister.pressidium.com/wp-content/uploads/formidable/18/new-audio-jobs-30.jpg) center/cover no-repeat"></div>
+                                    </div>
+
+                                    <div class="inner-screen">
+                                        <img  src="images/header.png"  alt="">
+                                    </div>
+                                    <img class="i11mockup" src="https://www.rbt.goldenexplorer.net/public/assets/images/iphone-mockup.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="banner-content">
+                                <h2>لتحميل رنة إلهنا انت الشافي    </h2>
+                                <p class="bsx">
+                                    <a href="./sound.mp3" download>
+                                        <img  src="images/a2.png">
+                                    </a>
+                                    <a  href="./sound.mp3" download>
+                                        <img  src="images/a1.png">
+                                    </a>
+                                    <a  href="./sound.mp3" download>
+                                        <img  src="images/a3.png">
+                                    </a>
+                                    
+                                </p>
+                                <p class="copyright">
+                                    جميع الحقوق محفوظة  &copy; 2021 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- jquery latest version -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- bootstrap 4 js -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://rawgit.com/tommytwoeyes/siriwavejs/master/siriwave.js"></script>
+    <script>
+
+        var player = document.getElementById('player'),
+            swClassic = document.querySelector("#soundwave");
+
+          //for wave
+
+          var siriWaveClassic = new SiriWave({
+            container: swClassic,
+            style: 'default',
+            cover: true,
+            height: 20,
+            speed: 0.02,
+            amplitude: 0.4,
+            color: '#fff',
+            // autostart: false
+          })
+          siriWaveClassic.start();
+
+        //for player
+        player.play();
+        document.getElementById('play-btn').className = "pause";
+        
+        var isplayable1 = false;
+        var isplayable2 = false;
+        function myOnLoadedData() {
+            console.log('true 1');
+            isplayable1 = true;
+        }
+
+        function myOnCanPlayThroughFunction() {
+            console.log(player.currentTime, 'player.currentTime')
+            if (Math.floor(player.currentTime) === 0) {
+                console.log('time is 0')
+                console.log('true 2');
+                isplayable2 = true;
+            }
+        }
+
+        function forceToPlay(){
+            console.log('true 3 final', player)
+            console.log(isplayable1, 'isplayable1')
+            console.log(isplayable2, 'isplayable2')
+
+            if (isplayable2 && isplayable1) {
+                setTimeout(function(){
+                    console.log('in setTimeout 2 sec ============================================>100')
+
+                    if (player.paused === true) {
+                        player.play();
+                        siriWaveClassic.stop();
+                        console.log('pause mode')
+                        document.getElementById('play-btn').className = "";
+                    } else{
+                        console.log('play mode')
+                        siriWaveClassic.start();
+                        document.getElementById('play-btn').className = "pause";
+                    }
+                }, 3000)
+            }
+        };
+
+
+        function initProgressBar() {
+            var player = document.getElementById('player');
+            var length = player.duration
+            var current_time = player.currentTime;
+
+            // calculate total length of value
+            var totalLength = calculateTotalValue(length)
+            document.getElementById("end-time").innerHTML = totalLength;
+
+            // calculate current value time
+            var currentTime = calculateCurrentValue(current_time);
+            document.getElementById("start-time").innerHTML = currentTime;
+
+            var progressbar = document.getElementById('seek-obj');
+            progressbar.value = (player.currentTime / player.duration);
+            progressbar.addEventListener("click", seek);
+
+            if (player.currentTime == player.duration) {
+                document.getElementById('play-btn').className = "";
+            }
+
+            function seek(event) {
+                var percent = event.offsetX / this.offsetWidth;
+                player.currentTime = percent * player.duration;
+                progressbar.value = percent / 100;
+            }
+        };
+
+        function initPlayers(num) {
+            // pass num in if there are multiple audio players e.g 'player' + i
+
+            for (var i = 0; i < num; i++) {
+                (function() {
+
+                    // Variables
+                    // ----------------------------------------------------------
+                    // audio embed object
+                    var playerContainer = document.getElementById('player-container'),
+                        player = document.getElementById('player'),
+                        isPlaying = false,
+                        playBtn = document.getElementById('play-btn');
+
+                    // Controls Listeners
+                    // ----------------------------------------------------------
+                    if (playBtn != null) {
+                        playBtn.addEventListener('click', function() {
+                            togglePlay()
+                        });
+                    }
+
+                    // Controls & Sounds Methods
+                    // ----------------------------------------------------------
+                    function togglePlay() {
+                        if (player.paused === false) {
+                            player.pause();
+                            isPlaying = false;
+                            siriWaveClassic.stop();
+                            document.getElementById('play-btn').className = "";
+
+                        } else {
+                            player.play();
+                            siriWaveClassic.start();
+                            document.getElementById('play-btn').className = "pause";
+                            isPlaying = true;
+                        }
+                    }
+
+                }());
+            }
+        }
+
+        function calculateTotalValue(length) {
+            var minutes = Math.floor(length / 60),
+                seconds_int = length - minutes * 60,
+                seconds_str = seconds_int.toString(),
+                seconds = seconds_str.substr(0, 2),
+                time = minutes + ':' + seconds
+
+            return time;
+        }
+
+        function calculateCurrentValue(currentTime) {
+            var current_hour = parseInt(currentTime / 3600) % 24,
+                current_minute = parseInt(currentTime / 60) % 60,
+                current_seconds_long = currentTime % 60,
+                current_seconds = current_seconds_long.toFixed(),
+                current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
+
+            return current_time;
+        }
+
+        initPlayers(jQuery('#player-container').length);
+    </script>
+</body>
+</html>
